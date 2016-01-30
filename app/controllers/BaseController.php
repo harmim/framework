@@ -6,6 +6,12 @@ namespace App\Controllers;
 abstract class BaseController
 {
 
+	/** @var array */
+	protected $templateDate = [];
+
+	/** @var array */
+	protected $layoutData = [];
+
 
 	/**
 	 * @param array $path
@@ -18,7 +24,7 @@ abstract class BaseController
 	 */
 	protected function prepareTemplateData()
 	{
-		return [];
+
 	}
 
 
@@ -27,7 +33,7 @@ abstract class BaseController
 	 */
 	protected function prepareLayoutData()
 	{
-		return [
+		$this->layoutData += [
 			'title' => 'MVC Framework',
 			'templateName' => $this->getTemplateName(),
 		];
@@ -39,9 +45,11 @@ abstract class BaseController
 		$templatePath = VIEW_DIR . "/$template.phtml";
 		if (file_exists($templatePath)) {
 			if ($template === 'layout') {
-				$data = $this->prepareLayoutData();
+				$this->prepareLayoutData();
+				$data = $this->layoutData;
 			} else {
-				$data = $this->prepareTemplateData();
+				$this->prepareTemplateData();
+				$data = $this->templateDate;
 			}
 			if ($data) {
 				extract($this->escape($data));

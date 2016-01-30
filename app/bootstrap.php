@@ -22,14 +22,14 @@ $loader->addPrefixes([
 ]);
 $loader->register();
 
-dibi::connect([
-	'driver' => '',
-	'host' => '',
-	'username' => '',
-	'password' => '',
-	'database' => '',
-	'lazy' => TRUE,
-]);
+//dibi::connect([
+//	'driver' => '',
+//	'host' => '',
+//	'username' => '',
+//	'password' => '',
+//	'database' => '',
+//	'lazy' => TRUE,
+//]);
 
 $router = new App\Router\Router($_SERVER['REQUEST_URI']);
 $router->createRouter();
