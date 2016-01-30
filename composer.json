@@ -1,0 +1,16 @@
+{
+	"name": "harmim/framework",
+	"description": "Simple PHP framework",
+	"type": "project",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Dominik Harmim",
+			"email": "harmim6@gmail.com"
+		}
+	],
+	"require": {
+		"symfony/class-loader": "@dev",
+		"dibi/dibi": "@dev"
+	}
+}
